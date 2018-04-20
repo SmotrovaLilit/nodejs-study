@@ -1,11 +1,12 @@
-var phrases = require('./ru');
+var phrases = require('db');
+var log = require('logger')(module);
 
 function User(name) {
     this.name = name;
 }
 
 User.prototype.hello = function (who) {
-    console.log(phrases.Hello + ", " + who.name)
+   log(phrases.getPhrase("Hello") + ", " + who.name)
 };
 
-exports.User = User;
+module.exports = User;
